@@ -1,2 +1,2 @@
-# gqlgen-todos
-getting started gql gen
+# go gin
+getting started go gin
