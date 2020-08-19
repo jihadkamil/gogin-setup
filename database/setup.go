@@ -1,6 +1,8 @@
-package models
+package database
 
 import (
+	"gogin/models"
+
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/sqlite"
 )
@@ -14,7 +16,7 @@ func ConnectDataBase() {
 		panic("faield to connect to database!")
 	}
 
-	database.AutoMigrate(&Book{})
+	database.AutoMigrate(&models.Book{})
 
 	DB = database
 }
