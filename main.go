@@ -1,8 +1,8 @@
 package main
 
 import (
-	"gogin/controllers"
-	"gogin/models"
+	"gogin/database"
+	"gogin/usecase"
 
 	"github.com/gin-gonic/gin"
 )
@@ -10,11 +10,12 @@ import (
 func main() {
 	router := gin.Default()
 
-	models.ConnectDataBase()
+	database.ConnectDataBase()
 
-	router.GET("/books", controllers.FindBooks)
-	router.GET("/book/:id", controllers.FindABook)
-	router.POST("/books", controllers.CreateBook)
+	router.GET("/books", usecase.FindBooks)
+	router.GET("/book/:id", usecase.FindABook)
+	router.POST("/book", usecase.CreateBook)
+	router.PATCH("/book/:id", usecase.UpdateBook)
 
 	router.Run()
 }
